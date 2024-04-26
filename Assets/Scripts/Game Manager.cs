@@ -7,21 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Text Objects in Unity //
      public TMP_Text playerScoreTxt;
      public TMP_Text totalAnswersCorrectTxt;
      public TMP_Text totalAnswersWrongTxt;
      public TMP_Text num1Txt;
      public TMP_Text num2Txt;
-     public TMP_Text playerFeedback; 
+     public TMP_Text playerFeedback;
      
-     
-     // Text input field box //
      string playerInput;
-     
-     
+
      bool isAnswerSubmitted;
-  
 
      int correctProduct;
      int numberOfCorrectAnswers;
@@ -32,22 +27,18 @@ public class GameManager : MonoBehaviour
      public static int finalScore;
      public static int finalCorrectAnswers;
      public static int finalWrongAnswers;
-    
-     
-     public List<int> gameResults = new List<int>();
-     
 
-     // Start is called before the first frame update
+     public List<int> gameResults = new List<int>();
+
      void Start()
      {
-         
+         isAnswerSubmitted = false;
          GenerateQuestion();
      } 
 
-     // Update is called once per frame
      void Update()
      {
-
+         
          if(numberOfQuestionsGenerated == 11)
          {
             
@@ -55,15 +46,12 @@ public class GameManager : MonoBehaviour
              CurrectGameResults();
              
              SceneManager.LoadScene("Win");
-
-             //Debug.Log("Your total score is: " + gameResults[1]);
-             
-             
          }
      }
      
-     void GenerateQuestion() //Generates 2 random intergers and converts them to strings to be displayed
+     void GenerateQuestion() 
      {
+
            int randNum1 = Random.Range(1,13); 
            int randNum2 = Random.Range(1,13);
 
@@ -71,26 +59,22 @@ public class GameManager : MonoBehaviour
            num2Txt.text = randNum2.ToString();
            correctProduct = randNum1 * randNum2;       
      }
-      
- 
-     public void SubmitAnswer(string input) //for debugging purposes only
+
+     public void SubmitAnswer(string input) 
      {
 
-           
+           isAnswerSubmitted = true;
            playerInput = input;
-           Debug.Log(playerInput);
            CheckAnswer();
            numberOfQuestionsGenerated++;
      }
 
      void CheckAnswer()
      {
-       int playerInputAsInt = int.Parse(playerInput); //convert player input string to integer
+       int playerInputAsInt = int.Parse(playerInput); 
 
        if(playerInputAsInt != correctProduct)
        {
-               Debug.Log("WRONG!");
-            
                numberofWrongAnswers += 1;
                score -= 3;
                totalAnswersWrongTxt.text = numberofWrongAnswers.ToString();
@@ -100,7 +84,6 @@ public class GameManager : MonoBehaviour
        }
        if(playerInputAsInt == correctProduct)
        {
-               Debug.Log("CORRECT!");
                numberOfCorrectAnswers += 1;
                score++;
                totalAnswersCorrectTxt.text = numberOfCorrectAnswers.ToString();   
@@ -110,35 +93,31 @@ public class GameManager : MonoBehaviour
                {
                        score*= 2;      
                }    
-               
-               Debug.Log("Score:" + score);
                playerFeedback.text = "CORRECT!";
                StartCoroutine(FeedbackToTitleQuestion());
        }
        playerScoreTxt.text = score.ToString();
        numberOfQuestionsGenerated = numberOfCorrectAnswers + numberofWrongAnswers;
        GenerateQuestion();
-       Debug.Log("Questions Counter: " + numberOfQuestionsGenerated);
      }
 
     public void CurrectGameResults()
     {
-         gameResults.Add(score);
-         gameResults.Add(numberOfCorrectAnswers);
-         gameResults.Add(numberofWrongAnswers);
+        gameResults.Add(score);
+        gameResults.Add(numberOfCorrectAnswers);
+        gameResults.Add(numberofWrongAnswers);
 
-         finalScore = gameResults[1];
-         finalCorrectAnswers = gameResults[1];
-         finalWrongAnswers = gameResults[0];
-
+        finalScore = gameResults[0];
+        finalCorrectAnswers = gameResults[1];
+        finalWrongAnswers = gameResults[2];
     }
 
     IEnumerator FeedbackToTitleQuestion()
-     {
-         if(isAnswerSubmitted)
-         {
-             yield return new WaitForSeconds(1.2f);
-             playerFeedback.text = "What is";
-         }
-     }
+    {
+       if(isAnswerSubmitted)
+       {
+          yield return new WaitForSeconds(1.2f);
+          playerFeedback.text = "What is";
+       }
+    }
 }

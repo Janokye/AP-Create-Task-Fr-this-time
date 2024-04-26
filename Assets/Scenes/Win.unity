@@ -400,7 +400,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 886702768}
+  - {fileID: 800952796}
   m_Father: {fileID: 135735900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -806,7 +806,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 800952796}
+  - {fileID: 642929635}
   m_Father: {fileID: 135735900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 642929636}
   - component: {fileID: 642929637}
   m_Layer: 5
-  m_Name: FInal Score Number
+  m_Name: FInal correct Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,16 +936,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642929634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2053709831}
+  m_Father: {fileID: 417378262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264, y: 261}
+  m_AnchoredPosition: {x: -432, y: -60.11731}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &642929636
@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 800952797}
   - component: {fileID: 800952798}
   m_Layer: 5
-  m_Name: Total Correct Number
+  m_Name: Total wrong Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,11 +1121,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 417378262}
+  m_Father: {fileID: 172278445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -432.00006, y: -235}
+  m_AnchoredPosition: {x: -432.00006, y: -58.88275}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &800952797
@@ -1675,7 +1675,7 @@ GameObject:
   - component: {fileID: 886702767}
   - component: {fileID: 886702766}
   m_Layer: 5
-  m_Name: Total Wrong Number
+  m_Name: Total final Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1792,11 +1792,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 172278445}
+  m_Father: {fileID: 2053709831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76, y: -152}
+  m_AnchoredPosition: {x: 92.000046, y: -7.0000153}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1015790968
@@ -2476,9 +2476,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1360863619}
-  finalScore: {fileID: 642929637}
-  finalTotalCorrect: {fileID: 800952798}
-  finalTotalWrong: {fileID: 886702766}
+  finalScore: {fileID: 886702766}
+  finalTotalCorrect: {fileID: 642929637}
+  finalTotalWrong: {fileID: 800952798}
 --- !u!1 &2053709830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2509,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 642929635}
+  - {fileID: 886702768}
   m_Father: {fileID: 135735900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

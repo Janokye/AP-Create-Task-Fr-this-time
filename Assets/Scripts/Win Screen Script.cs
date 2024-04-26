@@ -12,7 +12,7 @@ public class WinScreenScript : MonoBehaviour
     public TMP_Text finalTotalCorrect;
     public TMP_Text finalTotalWrong;
  
-    // Start is called before the first frame update
+
     void Start()
     {
         if(SceneManager.GetActiveScene().name == "Win")
@@ -25,11 +25,5 @@ public class WinScreenScript : MonoBehaviour
            finalTotalWrong.text = GameManager.finalWrongAnswers.ToString();
 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
