@@ -41,9 +41,8 @@ public class GameManager : MonoBehaviour
          
          if(numberOfQuestionsGenerated == 11)
          {
-            
-             
-             CurrectGameResults();
+
+             AddCurrectGameResults();
              
              SceneManager.LoadScene("Win");
          }
@@ -52,8 +51,8 @@ public class GameManager : MonoBehaviour
      void GenerateQuestion() 
      {
 
-           int randNum1 = Random.Range(1,13); 
-           int randNum2 = Random.Range(1,13);
+           int randNum1 = Random.Range(0,13); 
+           int randNum2 = Random.Range(0,13);
 
            num1Txt.text = randNum1.ToString();
            num2Txt.text = randNum2.ToString();
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour
        GenerateQuestion();
      }
 
-    public void CurrectGameResults()
+    public void AddCurrectGameResults()
     {
         gameResults.Add(score);
         gameResults.Add(numberOfCorrectAnswers);

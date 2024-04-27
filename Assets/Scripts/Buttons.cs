@@ -5,17 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void OnClickStart()
     {
         SceneManager.LoadScene("Test");
