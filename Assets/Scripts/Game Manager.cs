@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+     Buttons buttonScr;
+
      public TMP_Text playerScoreTxt;
      public TMP_Text totalAnswersCorrectTxt;
      public TMP_Text totalAnswersWrongTxt;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
      int numberofWrongAnswers;
      int numberOfQuestionsGenerated;
      int score;
+     int rangeMax;
+     
 
      public static int finalScore;
      public static int finalCorrectAnswers;
@@ -32,8 +36,22 @@ public class GameManager : MonoBehaviour
 
      void Start()
      {
+         if(Buttons.gameMode == "Easy")
+         {
+             rangeMax = 13;
+         }
+         if(Buttons.gameMode == "Medium")
+         {
+             rangeMax = 20;
+         }
+         if(Buttons.gameMode == "Hard")
+         {
+             rangeMax = 50;
+         }
+
          isAnswerSubmitted = false;
-         GenerateQuestion();
+     
+         GenerateQuestion(rangeMax);
      } 
 
      void Update()
@@ -48,11 +66,11 @@ public class GameManager : MonoBehaviour
          }
      }
      
-     void GenerateQuestion() 
+     void GenerateQuestion(int setMaxNum) 
      {
-
-           int randNum1 = Random.Range(0,13); 
-           int randNum2 = Random.Range(0,13);
+         
+           int randNum1 = Random.Range(0,setMaxNum); 
+           int randNum2 = Random.Range(0,setMaxNum);
 
            num1Txt.text = randNum1.ToString();
            num2Txt.text = randNum2.ToString();
@@ -69,6 +87,7 @@ public class GameManager : MonoBehaviour
      }
 
      void CheckAnswer()
+
      {
        int playerInputAsInt = int.Parse(playerInput); 
 
@@ -97,7 +116,7 @@ public class GameManager : MonoBehaviour
        }
        playerScoreTxt.text = score.ToString();
        numberOfQuestionsGenerated = numberOfCorrectAnswers + numberofWrongAnswers;
-       GenerateQuestion();
+       GenerateQuestion(rangeMax);
      }
 
     public void AddCurrectGameResults()

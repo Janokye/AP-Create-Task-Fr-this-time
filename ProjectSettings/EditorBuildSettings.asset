@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Help.unity
     guid: 85d788727cf3151449cb4fa20bf4d049
   - enabled: 1
+    path: Assets/Scenes/Set Difficulty.unity
+    guid: bc14f77ca3f31b04d915aaf1c305f3e7
+  - enabled: 1
     path: Assets/Scenes/Test.unity
     guid: a43499405608d664f8c6a91909b6f62b
   - enabled: 1

@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    GameManager gm;
+
+    public static string gameMode;
+
     public void OnClickStart()
     {
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("Set Difficulty");
     }
 
     public void OnClickHelp()
@@ -24,4 +28,20 @@ public class Buttons : MonoBehaviour
     {
         Application.Quit();
     }
+
+   public void GameModeEasy()
+   {
+         gameMode = "Easy";
+         SceneManager.LoadScene("Test");
+   }
+   public void GameModeMedium()
+   {
+         gameMode = "Medium";
+         SceneManager.LoadScene("Test");
+   }
+   public void GameModeHard()
+   {
+         gameMode = "Hard";
+         SceneManager.LoadScene("Test");
+   }
 }
