@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +26,6 @@ public class GameManager : MonoBehaviour
      int score;
      int rangeMax;
      
-
      public static int finalScore;
      public static int finalCorrectAnswers;
      public static int finalWrongAnswers;
@@ -49,14 +47,13 @@ public class GameManager : MonoBehaviour
              rangeMax = 50;
          }
 
-         isAnswerSubmitted = false;
+         CheckSubmissionStatus(false);
      
          GenerateQuestion(rangeMax);
      } 
 
      void Update()
      {
-         
          if(numberOfQuestionsGenerated == 11)
          {
 
@@ -67,8 +64,7 @@ public class GameManager : MonoBehaviour
      }
      
      void GenerateQuestion(int setMaxNum) 
-     {
-         
+     {         
            int randNum1 = Random.Range(0,setMaxNum); 
            int randNum2 = Random.Range(0,setMaxNum);
 
@@ -79,8 +75,7 @@ public class GameManager : MonoBehaviour
 
      public void SubmitAnswer(string input) 
      {
-
-           isAnswerSubmitted = true;
+           CheckSubmissionStatus(true);
            playerInput = input;
            CheckAnswer();
            numberOfQuestionsGenerated++;
@@ -117,6 +112,11 @@ public class GameManager : MonoBehaviour
        playerScoreTxt.text = score.ToString();
        numberOfQuestionsGenerated = numberOfCorrectAnswers + numberofWrongAnswers;
        GenerateQuestion(rangeMax);
+     }
+
+     public void CheckSubmissionStatus(bool status)
+     {
+         isAnswerSubmitted = status;
      }
 
     public void AddCurrectGameResults()
