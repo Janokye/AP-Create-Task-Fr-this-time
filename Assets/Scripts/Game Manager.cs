@@ -77,19 +77,19 @@ public class GameManager : MonoBehaviour
      {
            CheckSubmissionStatus(true);
            playerInput = input;
-           CheckAnswer();
+           CheckAnswer(2, 1, 3);
            numberOfQuestionsGenerated++;
      }
 
-     void CheckAnswer()
+     void CheckAnswer(int multiplierNum, int incrementScoreBy,int decrementScoreBy)
 
      {
        int playerInputAsInt = int.Parse(playerInput); 
 
        if(playerInputAsInt != correctProduct)
        {
-               numberofWrongAnswers += 1;
-               score -= 3;
+               numberofWrongAnswers += incrementScoreBy;
+               score -= decrementScoreBy;
                totalAnswersWrongTxt.text = numberofWrongAnswers.ToString();
                playerFeedback.text = "WRONG!";
 
@@ -97,14 +97,14 @@ public class GameManager : MonoBehaviour
        }
        if(playerInputAsInt == correctProduct)
        {
-               numberOfCorrectAnswers += 1;
-               score++;
+               numberOfCorrectAnswers += incrementScoreBy;
+               score += incrementScoreBy;
                totalAnswersCorrectTxt.text = numberOfCorrectAnswers.ToString();   
                
                
                for(int i = 1; i <= numberOfCorrectAnswers / 3; i++)
                {
-                       score*= 2;      
+                       score*= multiplierNum;      
                }    
                playerFeedback.text = "CORRECT!";
                StartCoroutine(FeedbackToTitleQuestion());
